@@ -8,22 +8,21 @@ import Bio from '../components/Bio'
 import Layout from '../components/layout'
 import { rhythm } from '../utils/typography'
 
-class BlogIndex extends React.Component {
+class LuisPage extends React.Component {
   render() {
     const siteTitle = get(
       this,
       'props.data.cosmicjsSettings.metadata.title',
-      'props.data.cosmicjsSettings.metadata.title'
     )
     // const posts = get(this, 'props.data.allCosmicjsPosts.edges')
     // const author = get(this, 'props.data.cosmicjsSettings.metadata')
-    // const location = get(this, 'props.location')
+    const location = get(this, 'props.location')
     const title = get(this, props.cosmicjsSettings.title)
 
     return (
       <Layout location={location}>
         <Helmet title={siteTitle} />
-        <Bio settings={author} />
+        {/* <Bio settings={author} /> */}
         <h1>{title}</h1>
         {/* {posts.map(({ node }) => {
           const title = get(node, 'title') || node.slug
@@ -50,7 +49,7 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default LuisPage
 
 export const pageQuery = graphql`
   query IndexQuery {
